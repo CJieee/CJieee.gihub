@@ -1,0 +1,178 @@
+$score-backgroundColor: #bbada0;
+$grid-backgroundColor: rgba(238, 228, 218, 0.35);
+$scoreColor:#eee4da;
+
+body {
+  padding-top: 8px !important;
+  background-color: #faf8ef !important;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.main {
+  width: 500px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.title {
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+  }
+  .scoreWrapper {
+    float: right;
+    .currentScore,
+    .bestScore {
+      position: relative;
+      box-sizing: content-box;
+      display: inline-block;
+      background: $score-backgroundColor;
+      padding: 15px 35px;
+      white-space: nowrap;
+      font-size: 20px;
+      height: 25px;
+      line-height: 50px;
+      font-weight: bold;
+      border-radius: 3px;
+      color: white;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .currentScore {
+      margin-right: 10px;
+    }
+    .currentScore::after {
+      content: "SCORE";
+    }
+    .bestScore::after {
+      content: "BEST";
+    }
+    .currentScore::after,
+    .bestScore::after {
+      position: absolute;
+      width: 100%;
+      top: 10px;
+      left: 0;
+      font-size: 13px;
+      line-height: 12px;
+      text-align: center;
+      color: $scoreColor;
+    }
+  }
+}
+
+.intro {
+  margin-top: 15px;
+  height: 35px;
+  .sayHi {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 35px;
+  }
+  .restart {
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    background: #8f7a66;
+    border-radius: 3px;
+    padding: 2px 23px;
+    text-decoration: none;
+    color: $scoreColor;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+
+.canvasWrapper {
+  box-sizing: border-box;
+  margin-top: 10px;
+  position: relative;
+  padding: 15px;
+  border-radius: 6px;
+  width: 500px;
+  height: 500px;
+  background-color: $score-backgroundColor;
+  #true{
+    opacity: 1;
+  }
+  .success{
+    opacity : 1 !important;
+  }
+  .over{
+    border-radius: 6px;
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    top:0px;
+    z-index: 1;
+    height: 500px;
+    width: 500px;
+    background: rgba(238, 228, 218, 0.5);
+    transition: all 800ms linear;
+    text-align: center;
+    p{
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      margin-top: 180px;
+    }
+    a{
+      font-size: 20px;
+      border-radius: 3px;
+      padding: 8px 32px;
+      text-decoration: none;
+      height: 40px;
+      line-height: 40px;
+      background: #8f7a66;
+      color: #f9f6f2;
+      cursor: pointer;
+    }
+  }
+  
+  .row {
+    margin-bottom: 10px;
+    .grid {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      width: 106.25px;
+      height: 106.25px;
+      margin-right: 15px;
+      border-radius: 6px;
+      background: $grid-backgroundColor;
+      transition: all 300ms ease-in-out;
+      span {
+        font-weight: bold;
+        font-size: 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 107px;
+        width: 107px;
+        line-height: 107px; 
+        transition: all 300ms ease-in-out;
+      }
+    }
+    .grid:last-child {
+      margin-right: 0;
+    }
+  }
+  .row::after,.row::before {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .row:last-child {
+    margin-bottom: 0;
+  }
+}
