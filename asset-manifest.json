@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CJieee/static/css/main.15b58e4a.css",
+    "main.js": "/CJieee/static/js/main.5b89ee91.js",
+    "index.html": "/CJieee/index.html",
+    "main.15b58e4a.css.map": "/CJieee/static/css/main.15b58e4a.css.map",
+    "main.5b89ee91.js.map": "/CJieee/static/js/main.5b89ee91.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15b58e4a.css",
+    "static/js/main.5b89ee91.js"
+  ]
+}
