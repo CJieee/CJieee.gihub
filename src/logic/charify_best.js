@@ -1,10 +1,13 @@
 import { createRandomNumber } from "./reset";
 function failOrNot(newData,setFail){
   let count = 0
-  if(newData[0][0]!==newData[1][0] && newData[0][0]!==newData[0][1]){
-    count ++
-  }else{
-    return false
+  for(let i =0 ;i<3;i++){
+    if(newData[0][i]!==newData[0][i+1])
+    count++
+  }
+  for(let i =0 ;i<3;i++){
+    if(newData[i][0]!==newData[i+1][0])
+    count++
   }
   for(let i =1;i<4;i++){
     for(let j =1;j<4;j++){
@@ -13,7 +16,7 @@ function failOrNot(newData,setFail){
       }
     }
   }
-  if(count === 10){
+  if(count === 15){
     setFail('true')
   }
 }
