@@ -8,6 +8,8 @@ function GameBody() {
   const [data, setData] = useContext(DataContext)
   const [score,setScore] = useContext(ScoreContext)
   const [fail, setFail] = useContext(FailContext);
+  let startx,starty,endx,endy
+  let document_width = window.screen.availWidth
   //移动端监听滑动事件
   useEffect(()=>{
     document.addEventListener('touchstart',function (e) {
