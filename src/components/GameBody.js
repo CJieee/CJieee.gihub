@@ -8,25 +8,55 @@ function GameBody() {
   const [data, setData] = useContext(DataContext)
   const [score,setScore] = useContext(ScoreContext)
   const [fail, setFail] = useContext(FailContext);
+  //移动端监听滑动事件
+  useEffect(()=>{
+    document.addEventListener('touchstart',function (e) {
+      startx = e.touches[0].pageX;
+      starty = e.touches[0].pageY;
+    });
+    document.addEventListener('touchend',function (e) {
+      endx = e.changedTouches[0].pageX;
+      endy = e.changedTouches[0].pageY;
+      let x = endx - startx;
+      let y = endy - starty;
+      if(Math.abs(x) < 0.3*document_width && Math.abs(y) < 0.3*document_width){
+          return;
+      }
+      if(Math.abs(x) > Math.abs(y)){
+        if(x > 0){
+          rowMove(0,data,score,setScore,setFail,setData);//right
+        } else {
+          rowMove(1,data,score,setScore,setFail,setData);//left
+        }
+      }else if(Math.abs(x) < Math.abs(y)) {
+        if (y < 0){
+          columnMove(1,data,score,setScore,setFail,setData)//up
+        } else { 
+          columnMove(0,data,score,setScore,setFail,setData)//down
+        }
+      }
+    })
+  })
+  // pc端监听键盘事件
   useEffect(() => {
     function bindKeyEvent(e) {
       let keyCode = e.keyCode;
       switch (keyCode) {
         case 37:
         case 65:
-          rowMove(1,data,score,setScore,setFail,setData);
+          rowMove(1,data,score,setScore,setFail,setData);//left
           break;
         case 38:
         case 87:
-          columnMove(1,data,score,setScore,setFail,setData);
+          columnMove(1,data,score,setScore,setFail,setData);//up
           break;
         case 39:
         case 68:
-          rowMove(0,data,score,setScore,setFail,setData);
+          rowMove(0,data,score,setScore,setFail,setData);//right
           break;
         case 40:
         case 83:
-          columnMove(0,data,score,setScore,setFail,setData);
+          columnMove(0,data,score,setScore,setFail,setData);//down
           break;
         case 81:
           restart(setData,setScore,setFail);
