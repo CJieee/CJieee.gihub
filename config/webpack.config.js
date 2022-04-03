@@ -1,5 +1,6 @@
 'use strict';
 
+const px2rem = require('postcss-pxtorem')
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
