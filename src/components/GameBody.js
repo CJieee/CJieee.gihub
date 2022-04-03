@@ -8,37 +8,37 @@ function GameBody() {
   const [data, setData] = useContext(DataContext)
   const [score,setScore] = useContext(ScoreContext)
   const [fail, setFail] = useContext(FailContext);
-  let startx,starty,endx,endy
-  let document_width = window.screen.availWidth
-  //移动端监听滑动事件
-  useEffect(()=>{
-    document.addEventListener('touchstart',function (e) {
-      startx = e.touches[0].pageX;
-      starty = e.touches[0].pageY;
-    });
-    document.addEventListener('touchend',function (e) {
-      endx = e.changedTouches[0].pageX;
-      endy = e.changedTouches[0].pageY;
-      let x = endx - startx;
-      let y = endy - starty;
-      if(Math.abs(x) < 0.3*document_width && Math.abs(y) < 0.3*document_width){
-          return;
-      }
-      if(Math.abs(x) > Math.abs(y)){
-        if(x > 0){
-          rowMove(0,data,score,setScore,setFail,setData);//right
-        } else {
-          rowMove(1,data,score,setScore,setFail,setData);//left
-        }
-      }else if(Math.abs(x) < Math.abs(y)) {
-        if (y < 0){
-          columnMove(1,data,score,setScore,setFail,setData)//up
-        } else { 
-          columnMove(0,data,score,setScore,setFail,setData)//down
-        }
-      }
-    })
-  })
+  // let startx,starty,endx,endy
+  // let document_width = window.screen.availWidth
+  // //移动端监听滑动事件
+  // useEffect(()=>{
+  //   document.addEventListener('touchstart',function (e) {
+  //     startx = e.touches[0].pageX;
+  //     starty = e.touches[0].pageY;
+  //   });
+  //   document.addEventListener('touchend',function (e) {
+  //     endx = e.changedTouches[0].pageX;
+  //     endy = e.changedTouches[0].pageY;
+  //     let x = endx - startx;
+  //     let y = endy - starty;
+  //     if(Math.abs(x) < 0.3*document_width && Math.abs(y) < 0.3*document_width){
+  //         return;
+  //     }
+  //     if(Math.abs(x) > Math.abs(y)){
+  //       if(x > 0){
+  //         rowMove(0,data,score,setScore,setFail,setData);//right
+  //       } else {
+  //         rowMove(1,data,score,setScore,setFail,setData);//left
+  //       }
+  //     }else if(Math.abs(x) < Math.abs(y)) {
+  //       if (y < 0){
+  //         columnMove(1,data,score,setScore,setFail,setData)//up
+  //       } else { 
+  //         columnMove(0,data,score,setScore,setFail,setData)//down
+  //       }
+  //     }
+  //   })
+  // })
   // pc端监听键盘事件
   useEffect(() => {
     function bindKeyEvent(e) {
