@@ -147,7 +147,7 @@ module.exports = function (webpackEnv) {
                     },
                   ],
                   px2rem({
-                    rootValue: 150, // 基数
+                    rootValue: 64, // 基数
                     unitPrecision: 5, // 进制位数
                     propList: ['*'] // 所有属性 都匹配rem
                   }),
