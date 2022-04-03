@@ -145,6 +145,11 @@ module.exports = function (webpackEnv) {
                       stage: 3,
                     },
                   ],
+                  px2rem({
+                    rootValue: 100, // 基数
+                    unitPrecision: 5, // 进制位数
+                    propList: ['*'] // 所有属性 都匹配rem
+                  }),
                   // Adds PostCSS Normalize as the reset css with default options,
                   // so that it honors browserslist config in package.json
                   // which in turn let's users customize the target behavior as per their needs.
